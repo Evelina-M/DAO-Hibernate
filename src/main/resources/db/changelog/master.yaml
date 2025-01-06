@@ -1,0 +1,30 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: evelina
+      changes:
+        - createTable:
+            tableName: PERSONS
+            columns:
+              - column:
+                  name: id
+                  type: serial
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: VARCHAR(100)
+              - column:
+                  name: surname
+                  type: VARCHAR(100)
+              - column:
+                  name: age
+                  type: INTEGER
+              - column:
+                  name: phone_number
+                  type: VARCHAR(20)
+              - column:
+                  name: city_of_living
+                  type: VARCHAR(100)
