@@ -43,17 +43,17 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<UserEntity> getUsersByCity(String cityOfLiving) {
-        return userRepository.findByCityOfLiving(cityOfLiving);
+        return userRepository.findByCity(cityOfLiving);
     }
 
     @Override
     public List<UserEntity> getLessThanOrderByAge(int age) {
-        return userRepository.findByContactAgeLessThanOrderByContactAge(age);
+        return userRepository.findByAgeLessThanOrderByAge(age);
     }
 
     @Override
     public Optional<UserEntity> getNameAndSurname(String name, String surname) {
-        return userRepository.findByContactNameAndContactSurname(name, surname);
+        return userRepository.findByNameAndSurname(name, surname);
     }
 
 
