@@ -23,6 +23,4 @@ public class Contact implements Serializable {
 
     @Column(length = 3, name = "age", nullable = false)
     private int age;
-
-
 }

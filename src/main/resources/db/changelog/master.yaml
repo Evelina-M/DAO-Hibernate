@@ -9,10 +9,8 @@ databaseChangeLog:
               - column:
                   name: id
                   type: serial
-                  autoIncrement: true
                   constraints:
                     primaryKey: true
-                    nullable: false
               - column:
                   name: name
                   type: VARCHAR(100)

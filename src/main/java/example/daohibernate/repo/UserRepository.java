@@ -1,22 +1,18 @@
 package example.daohibernate.repo;
 
+import example.daohibernate.entity.Contact;
 import example.daohibernate.entity.UserEntity;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
-public class UserRepository {
+public interface UserRepository extends JpaRepository<UserEntity, Contact> {
+    List<UserEntity> findByCityOfLiving(String cityOfLiving);
 
-    @PersistenceContext
-    private EntityManager entityManager;
+    List<UserEntity> findByContactAgeLessThanOrderByContactAge(int age);
 
-    public List<UserEntity> getPersonsByCity(String city) {
-        return entityManager.createQuery
-                        ("SELECT p FROM UserEntity p WHERE p.cityOfLiving = :city", UserEntity.class)
-                .setParameter("city", city)
-                .getResultList();
-    }
+    Optional<UserEntity> findByContactNameAndContactSurname(String name, String surname);
 }

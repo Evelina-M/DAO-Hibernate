@@ -1,13 +1,7 @@
 package example.daohibernate.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.EmbeddedId;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.proxy.HibernateProxy;
-
-import java.util.Objects;
 
 @Entity
 @AllArgsConstructor
@@ -17,7 +11,6 @@ import java.util.Objects;
 @Setter
 @Builder
 public class UserEntity {
-
     @EmbeddedId
     private Contact contact;
 
