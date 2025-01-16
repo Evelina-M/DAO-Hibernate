@@ -17,6 +17,11 @@ import java.util.Optional;
 public class UserController {
     private final UserService userService;
 
+    @GetMapping("/public")
+    public String publicPage() {
+        return "public text";
+    }
+
     @PostMapping("/create")
     public ResponseEntity<UserEntity> createUser(@RequestBody UserEntity user) {
         UserEntity createdUser = userService.createUser(user);
