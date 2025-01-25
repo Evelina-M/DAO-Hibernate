@@ -33,13 +33,25 @@ public class SecurityConfig {
     public UserDetailsService userDetailsService() {
         User.UserBuilder user = User.builder();
         InMemoryUserDetailsManager userDetailsManager = new InMemoryUserDetailsManager();
+
         userDetailsManager.createUser(user.username("admin")
                 .password("{noop}admin")
                 .roles("ADMIN")
                 .build());
-        userDetailsManager.createUser(user.username("user")
-                .password("{noop}user")
-                .roles("USER")
+
+        userDetailsManager.createUser(user.username("readUser")
+                .password("{noop}password")
+                .roles("READ")
+                .build());
+
+        userDetailsManager.createUser(user.username("writeUser")
+                .password("{noop}password")
+                .roles("WRITE")
+                .build());
+
+        userDetailsManager.createUser(user.username("editor")
+                .password("{noop}password")
+                .roles("WRITE", "DELETE")
                 .build());
 
         return userDetailsManager;
